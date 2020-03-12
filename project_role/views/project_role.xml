@@ -55,7 +55,7 @@
         <field name="name">Project Roles</field>
         <field name="res_model">project.role</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_type">form</field>
+        <!--<field name="view_type">form</field>--> <!--This field was removed from ir.actions.act_window in Task 1937686-->
     </record>
 
     <menuitem
