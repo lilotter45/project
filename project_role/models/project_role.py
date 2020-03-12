@@ -70,7 +70,7 @@ class ProjectRole(models.Model):
         ),
     ]
 
-    @api.multi
+    #@api.multi
     @api.constrains('name')
     def _check_name(self):
         for role in self:
@@ -83,13 +83,13 @@ class ProjectRole(models.Model):
                     role.name,
                 ))
 
-    @api.multi
+    #@api.multi
     @api.constrains('parent_id')
     def _check_parent_id(self):
         if not self._check_recursion():
             raise ValidationError(_('You cannot create recursive roles.'))
 
-    @api.multi
+    #@api.multi
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
         for role in self:
@@ -101,7 +101,7 @@ class ProjectRole(models.Model):
             else:
                 role.complete_name = role.name
 
-    @api.multi
+    #@api.multi
     @api.constrains('active')
     def _check_active(self):
         for role in self:
@@ -113,7 +113,7 @@ class ProjectRole(models.Model):
                         role.parent_id.complete_name,
                     )))
 
-    @api.multi
+    #@api.multi
     def can_assign(self, user_id, project_id):
         """ Extension point to check if user can be assigned to this role """
         self.ensure_one()

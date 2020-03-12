@@ -96,7 +96,7 @@ class ProjectAssignment(models.Model):
                     assignment.role_id.name,
                 )
 
-    @api.multi
+    #@api.multi
     def _get_conflicting_domain(self):
         self.ensure_one()
         return [
@@ -111,7 +111,7 @@ class ProjectAssignment(models.Model):
             if self.project_id else []
         )
 
-    @api.multi
+    #@api.multi
     @api.constrains('company_id', 'project_id', 'role_id', 'user_id')
     def _check(self):
         """
