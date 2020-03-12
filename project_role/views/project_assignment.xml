@@ -150,7 +150,6 @@
         <field name="name">Project Assignments</field>
         <field name="res_model">project.assignment</field>
         <field name="view_mode">tree,kanban,form,pivot,graph</field>
-        <field name="view_type">form</field>
         <field name="search_view_id" ref="project_assignment_search"/>
         <field name="context">{'search_default_groupby_project': 1}</field>
     </record>
@@ -159,7 +158,6 @@
         <field name="name">Assignments</field>
         <field name="res_model">project.assignment</field>
         <field name="view_mode">kanban,tree,form,pivot,graph</field>
-        <field name="view_type">form</field>
         <field name="search_view_id" ref="project_assignment_search"/>
         <field name="context">{'default_project_id': active_id}</field>
         <field name="domain">[('project_id','=',active_id)]</field>
